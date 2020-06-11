@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  account.api:
+    image: ${DOCKER_REGISTRY-}account
+    build:
+      context: .
+      dockerfile: Services/Account/Account.API/Dockerfile
+
+  note.api:
+    image: ${DOCKER_REGISTRY-}note
+    build:
+      context: .
+      dockerfile: Services/Note/Note.API/Dockerfile
+
