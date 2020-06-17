@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY Services/Note/Note.API/Note.API.csproj Services/Note/Note.API/
+COPY src/Services/Note/Note.API/Note.API.csproj Services/Note/Note.API/
 RUN dotnet restore "Services/Note/Note.API/Note.API.csproj"
 COPY . .
 WORKDIR "/src/Services/Note/Note.API"
