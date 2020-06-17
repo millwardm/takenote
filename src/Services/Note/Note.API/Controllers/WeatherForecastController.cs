@@ -1,40 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Note.API.Controllers
 {
     [ApiController]
-    [Route("weather")]
-    public class WeatherForecastController : ControllerBase
+    [Route("note")]
+    public class NoteController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly ILogger<NoteController> _logger;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public NoteController(ILogger<NoteController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public String Get()
         {
-            _logger.LogDebug("hit");
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return "Hello World!";
         }
     }
 }

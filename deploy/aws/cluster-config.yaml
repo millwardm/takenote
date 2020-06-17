@@ -1,0 +1,14 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: takenote
+  region: ap-southeast-2
+
+managedNodeGroups:
+  - name: nodegroup
+    desiredCapacity: 1
+    instanceType: t2.micro
+    iam:
+      withAddonPolicies:
+        albIngress: true
