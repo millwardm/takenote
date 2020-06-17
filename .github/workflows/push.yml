@@ -1,10 +1,10 @@
-name: build and deploy
+name: Build and Deploy
 # This workflow is triggered on pushes to the repository.
 on: [push]
 
 jobs:
   build:
-    name: Build and push image
+    name: Build and Push Image
     runs-on: ubuntu-latest
     steps:
       - name: build note
@@ -12,6 +12,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          dockerfile: src/Services/Note/Note.API
+          dockerfile: src/Services/Note/Note.API/Dockerfile
           repository: mcmillward/takenote-note
           tags: latest
