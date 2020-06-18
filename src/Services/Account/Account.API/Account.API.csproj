@@ -4,6 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DockerComposeProjectPath>../../../docker-compose.dcproj</DockerComposeProjectPath>
     <UserSecretsId>0f02c691-bd84-4fd6-ace7-a4e4b7c35fae</UserSecretsId>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <GenerateErrorForMissingTargetingPacks>false</GenerateErrorForMissingTargetingPacks>
+
   </PropertyGroup>
 
 

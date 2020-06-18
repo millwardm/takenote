@@ -7,9 +7,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY Services/Account/Account.API/Account.API.csproj Services/Account/Account.API/
+COPY src/Services/Account/Account.API/Account.API.csproj Services/Account/Account.API/
 RUN dotnet restore "Services/Account/Account.API/Account.API.csproj"
-COPY . .
+COPY src/ .
 WORKDIR "/src/Services/Account/Account.API"
 RUN dotnet build "Account.API.csproj" -c Release -o /app/build
 

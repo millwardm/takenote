@@ -9,7 +9,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY src/Services/Note/Note.API/Note.API.csproj Services/Note/Note.API/
 RUN dotnet restore "Services/Note/Note.API/Note.API.csproj"
-COPY . .
+COPY src/ .
 WORKDIR "/src/Services/Note/Note.API"
 RUN dotnet build "Note.API.csproj" -c Release -o /app/build
 
