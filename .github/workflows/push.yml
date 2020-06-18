@@ -17,3 +17,16 @@ jobs:
           dockerfile: src/Services/Note/Note.API/Dockerfile
           repository: mcmillward/takenote-note
           tags: latest
+      - name: Deploy to Cluster
+        uses: steebchen/kubectl@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          args: '"rollout restart deployment.apps/takenote-api"'
+      - name: Verify Deployment
+        uses: steebchen/kubectl@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+          KUBECTL_VERSION: "1.15"
+        with:
+          args: '"rollout status deployment.apps/takenote-api"'

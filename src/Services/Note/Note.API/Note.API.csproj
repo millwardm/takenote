@@ -3,9 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DockerComposeProjectPath>../../../docker-compose.dcproj</DockerComposeProjectPath>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
     <UserSecretsId>c59f6c0e-f94c-4fbe-a289-e980022f6813</UserSecretsId>
-    <GenerateErrorForMissingTargetingPacks>false</GenerateErrorForMissingTargetingPacks>
   </PropertyGroup>
 
 
