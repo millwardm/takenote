@@ -1,6 +1,18 @@
-version: '3.4'
+version: "3.4"
 
 services:
+  sql:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+
+  liquibase:
+    environment:
+      - NOTEDB_URL=jdbc:sqlserver://sql:1433
+      - NOTEDB_USERNAME=sa
+      - NOTEDB_PASSWORD=Pass@word
 
   account.api:
     environment:
@@ -16,6 +28,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionString=Server=sql;User Id=sa;Password=Pass@word
     ports:
       - "3201:80"
     volumes:

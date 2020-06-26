@@ -13,6 +13,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Note.API", "Services\Note\N
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2BF8D72E-3741-4F4B-9CA5-2FFFA7F2FC8E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{3236A0D1-ED4A-4750-B24C-08620E75C167}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Note", "Note", "{479F0B22-3926-4645-B77C-FB26E1C3B171}"
+	ProjectSection(SolutionItems) = preProject
+		Database\Note\Dockerfile = Database\Note\Dockerfile
+		Database\Note\entrypoint.sh = Database\Note\entrypoint.sh
+		Database\Note\init.sql = Database\Note\init.sql
+		Database\Note\setup_database.sh = Database\Note\setup_database.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{F771CC05-9EBC-4615-A3BD-E1157BABAF94}"
+	ProjectSection(SolutionItems) = preProject
+		Database\Note\Scripts\build.gradle = Database\Note\Scripts\build.gradle
+		Database\Note\Scripts\changelog.xml = Database\Note\Scripts\changelog.xml
+		Database\Note\Scripts\01-init.sql = Database\Note\Scripts\01-init.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -37,5 +54,7 @@ Global
 		{192EA0EB-FF62-44AB-90F7-F5229A316256} = {6C21C2AF-DFB5-40D2-85FC-B3521360241D}
 		{B19640ED-A70C-4915-B54F-5E1A10E00817} = {1149D5D5-C299-4BB2-8B2F-0F1CBB80B841}
 		{E4F6FF65-864C-4EC4-848D-6697C4B28C9E} = {B19640ED-A70C-4915-B54F-5E1A10E00817}
+		{479F0B22-3926-4645-B77C-FB26E1C3B171} = {3236A0D1-ED4A-4750-B24C-08620E75C167}
+		{F771CC05-9EBC-4615-A3BD-E1157BABAF94} = {479F0B22-3926-4645-B77C-FB26E1C3B171}
 	EndGlobalSection
 EndGlobal

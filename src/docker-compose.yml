@@ -1,15 +1,28 @@
-version: '3.4'
+version: "3.4"
 
 services:
+  sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+
+  liquibase:
+    build:
+      context: ../
+      dockerfile: src/Database/Note/Dockerfile
+    depends_on:
+      - sql
+
   account.api:
     image: ${DOCKER_REGISTRY-}account
     build:
       context: ../
       dockerfile: src/Services/Account/Account.API/Dockerfile
+    depends_on:
+      - liquibase
 
   note.api:
     image: ${DOCKER_REGISTRY-}note
     build:
       context: ../
       dockerfile: src/Services/Note/Note.API/Dockerfile
-
+    depends_on:
+      - liquibase

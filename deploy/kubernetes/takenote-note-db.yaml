@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: takenote-note-db
+  labels:
+    app: takenote-note-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: takenote-note-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: takenote-note-db
+    spec:
+      containers:
+        - name: takenote-note-db
+          image: mcr.microsoft.com/mssql/server:2017-latest
+          env:
+            - name: SA_PASSWORD
+              value: $uPeR$eCRet
+            - name: ACCEPT_EULA
+              value: "Y"
+          ports:
+            - containerPort: 1433
+          volumeMounts:
+            - mountPath: /var/opt/mssql
+              name: sqldata
+      volumes:
+        - name: sqldata
+          emptyDir: {}
