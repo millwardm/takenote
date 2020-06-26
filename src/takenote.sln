@@ -19,15 +19,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Note", "Note", "{479F0B22-3
 	ProjectSection(SolutionItems) = preProject
 		Database\Note\Dockerfile = Database\Note\Dockerfile
 		Database\Note\entrypoint.sh = Database\Note\entrypoint.sh
-		Database\Note\init.sql = Database\Note\init.sql
 		Database\Note\setup_database.sh = Database\Note\setup_database.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{F771CC05-9EBC-4615-A3BD-E1157BABAF94}"
 	ProjectSection(SolutionItems) = preProject
-		Database\Note\Scripts\build.gradle = Database\Note\Scripts\build.gradle
-		Database\Note\Scripts\changelog.xml = Database\Note\Scripts\changelog.xml
-		Database\Note\Scripts\01-init.sql = Database\Note\Scripts\01-init.sql
+		Database\Note\Scripts\01-note-table.sql = Database\Note\Scripts\01-note-table.sql
+		Database\Note\Scripts\changelog-init.xml = Database\Note\Scripts\changelog-init.xml
+		Database\Note\Scripts\changelog-main.xml = Database\Note\Scripts\changelog-main.xml
 	EndProjectSection
 EndProject
 Global
