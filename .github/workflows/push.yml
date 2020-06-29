@@ -31,11 +31,11 @@ jobs:
           dockerfile: src/Database/Note/Dockerfile
           repository: mcmillward/takenote-note-db-update
           tags: latest
-      #- name: Set Version for Note DB Liquibase Job
-      #  uses: jacobtomlinson/gha-find-replace@master
-      #  with:
-      #    find: "[GIT_VERSION_HERE]"
-      #    replace: $GITHUB_SHA_SHORT
+      - name: Set Version for Note DB Liquibase Job
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "[GIT_VERSION_HERE]"
+          replace: "$GITHUB_SHA_SHORT"
       - name: Run Note DB Liquibase Job
         uses: steebchen/kubectl@master
         env:
