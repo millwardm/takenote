@@ -10,6 +10,7 @@ services:
       dockerfile: src/Database/Note/Dockerfile
     depends_on:
       - sql
+    entrypoint: ["/bin/bash", "./entrypoint.sh"]
 
   account.api:
     image: ${DOCKER_REGISTRY-}account

@@ -17,16 +17,28 @@ jobs:
           dockerfile: src/Services/Note/Note.API/Dockerfile
           repository: mcmillward/takenote-note
           tags: latest
-      - name: Deploy to Cluster
+      - name: Deploy Note API to Cluster
         uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: '"rollout restart deployment.apps/takenote-api"'
-      - name: Verify Deployment
+          args: '"rollout restart deployment.apps/note-api"'
+      - name: Build and Push Note DB Liquibase
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          dockerfile: src/Database/Note/Dockerfile
+          repository: mcmillward/takenote-note-db-update
+          tags: latest
+      - name: Set Version for Note DB Liquibase Job
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "[GIT_VERSION_HERE]"
+          replace: $GITHUB_SHA_SHORT
+      - name: Run Note DB Liquibase Job
         uses: steebchen/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          KUBECTL_VERSION: "1.15"
         with:
-          args: '"rollout status deployment.apps/takenote-api"'
+          args: '"apply -f deploy/kubernetes/note-db-liquibase.yaml"'

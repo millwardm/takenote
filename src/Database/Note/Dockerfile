@@ -5,4 +5,4 @@ COPY src/Database/Note/Scripts .
 COPY src/Database/Note/Liquibase .
 RUN ["chmod", "+x", "./entrypoint.sh"]
 RUN ["chmod", "+x", "./setup_database.sh"]
-CMD /bin/bash ./entrypoint.sh
+#CMD /bin/bash ./entrypoint.sh

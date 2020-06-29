@@ -10,7 +10,7 @@ services:
 
   liquibase:
     environment:
-      - NOTEDB_URL=jdbc:sqlserver://sql:1433
+      - NOTEDB_JDBC_URL=jdbc:sqlserver://sql:1433
       - NOTEDB_USERNAME=sa
       - NOTEDB_PASSWORD=Pass@word
 
