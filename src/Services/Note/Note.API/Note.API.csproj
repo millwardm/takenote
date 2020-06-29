@@ -11,6 +11,7 @@
     <Folder Include="SeedWork\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Model\" />
+    <Folder Include="Infrastructure\EntityConfigurations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
