@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{F771
 		Database\Note\Scripts\01-note-table.sql = Database\Note\Scripts\01-note-table.sql
 		Database\Note\Scripts\changelog-init.xml = Database\Note\Scripts\changelog-init.xml
 		Database\Note\Scripts\changelog-main.xml = Database\Note\Scripts\changelog-main.xml
+		Database\02-entry-table.sql = Database\02-entry-table.sql
 	EndProjectSection
 EndProject
 Global

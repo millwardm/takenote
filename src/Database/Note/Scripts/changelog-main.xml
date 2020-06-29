@@ -14,5 +14,14 @@
                 stripComments="true"/>  
     </changeSet> 
 
+    <changeSet  author="millwardm"  id="02-entry-table">  
+        <sqlFile encoding="UTF-8"  
+                endDelimiter="\nGO"  
+                path="02-entry-table.sql"  
+                relativeToChangelogFile="true"  
+                splitStatements="true"  
+                stripComments="true"/>  
+    </changeSet> 
 
+    
 </databaseChangeLog>
