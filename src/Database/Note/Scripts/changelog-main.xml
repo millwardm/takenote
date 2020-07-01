@@ -14,10 +14,19 @@
                 stripComments="true"/>  
     </changeSet> 
 
-    <changeSet  author="millwardm"  id="02-entry-table">  
+    <changeSet  author="millwardm"  id="02-notebook-table">  
         <sqlFile encoding="UTF-8"  
                 endDelimiter="\nGO"  
-                path="02-entry-table.sql"  
+                path="02-notebook-table.sql"  
+                relativeToChangelogFile="true"  
+                splitStatements="true"  
+                stripComments="true"/>  
+    </changeSet> 
+    
+    <changeSet  author="millwardm"  id="03-entry-table">  
+        <sqlFile encoding="UTF-8"  
+                endDelimiter="\nGO"  
+                path="03-entry-table.sql"  
                 relativeToChangelogFile="true"  
                 splitStatements="true"  
                 stripComments="true"/>  

@@ -2,13 +2,15 @@ version: "3.4"
 
 services:
   sql:
-    image: mcr.microsoft.com/mssql/server:2017-latest
+    build:
+      context: ../
+      dockerfile: src/Database/Note/DatabaseDockerfile
 
   liquibase:
     build:
       context: ../
-      dockerfile: src/Database/Note/Dockerfile
-    depends_on:
+      dockerfile: src/Database/Note/LiquibaseDockerfile
+    depends_on: 
       - sql
     entrypoint: ["/bin/bash", "./entrypoint.sh"]
 

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Net;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Note.API.Infrastructure;
-using Note.API.Model;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Note.API.Application.Commands;
+using Note.API.Application.Queries;
 
 namespace Note.API.Controllers
 {
@@ -15,29 +15,35 @@ namespace Note.API.Controllers
     public class NoteController : ControllerBase
     {
         private readonly ILogger<NoteController> _logger;
-        private NoteContext _context;
 
-        public NoteController(ILogger<NoteController> logger, NoteContext context)
+        private IMediator _mediator;
+
+        private INoteQueries _queries;
+
+        public NoteController(ILogger<NoteController> logger, IMediator mediator, INoteQueries queries)
         {
             _logger = logger;
-            _context = context;
+            _mediator = mediator;
+            _queries = queries;
         }
 
         [HttpGet]
-        public String Get()
+        [ProducesResponseType(typeof(IEnumerable<Notebook>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Notebook>>> GetNotebooks()
         {
-
-            /*
-            _context.Notebooks.Add(new Notebook { Name = "My new notebook" });
-            _context.SaveChanges();
-
-            foreach (var blog in _context.Notebooks)
-            {
-                Console.WriteLine(blog.Name);
-            }*/
-           
-            return "Hello World!";
+            var notebooks = await _queries.GetNotebooksAsync();
+            return Ok(notebooks);
         }
+
+        [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        public async Task<ActionResult> CreateNotebook([FromBody] CreateNotebookCommand createNotebookCommand)
+        {
+            var commandResult = await _mediator.Send(createNotebookCommand);
+            return commandResult ? (ActionResult)Ok() : (ActionResult)BadRequest();
+        }
+
 
     }
 }

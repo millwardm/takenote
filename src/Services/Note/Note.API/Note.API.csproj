@@ -9,9 +9,9 @@
 
   <ItemGroup>
     <Folder Include="SeedWork\" />
-    <Folder Include="Infrastructure\" />
-    <Folder Include="Model\" />
-    <Folder Include="Infrastructure\EntityConfigurations\" />
+    <Folder Include="Application\Commands\" />
+    <Folder Include="Application\" />
+    <Folder Include="Application\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
@@ -19,5 +19,16 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="MediatR" Version="8.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Dapper" Version="2.0.35" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Note.Domain\Note.Domain.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\Note.Infrastructure\Note.Infrastructure.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

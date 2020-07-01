@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Note.API.Infrastructure;
+using Note.API.Application.Queries;
+using Note.Infrastructure;
 
 namespace Note.API
 {
@@ -33,7 +28,13 @@ namespace Note.API
             services.AddEntityFrameworkSqlServer().AddDbContext<NoteContext>(options =>
                 options.UseSqlServer(Configuration["ConnectionString"]));
 
+            services.AddScoped<INoteQueries>(svc =>
+            {
+                var conStr = Configuration["ConnectionString"];
+                return new NoteQueries(conStr);
+            });
 
+            services.AddMediatR(Assembly.GetExecutingAssembly());
 
         }
 
