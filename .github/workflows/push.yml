@@ -34,7 +34,7 @@ jobs:
       - name: Set Version for Note DB Liquibase Job
         uses: jacobtomlinson/gha-find-replace@master
         with:
-          find: "[GIT_VERSION_HERE]"
+          find: GIT_VERSION_HERE
           replace: ${{ github.sha }}
       - name: Run Note DB Liquibase Job
         uses: steebchen/kubectl@master
