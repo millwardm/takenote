@@ -19,8 +19,6 @@ spec:
       containers:
         - name: note-api
           image: mcmillward/takenote-note:latest
-          ports:
-            - containerPort: 80
           env:
             - name: NOTEDB_URL
               value: note-db-svc
@@ -34,3 +32,5 @@ spec:
                 secretKeyRef:
                   name: note-db-cred
                   key: NOTEDB_PASSWORD
+          ports:
+            - containerPort: 80

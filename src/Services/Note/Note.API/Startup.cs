@@ -30,8 +30,6 @@ namespace Note.API
 
             var conStr = string.Format(_connectionStringTemplate, Configuration["NOTEDB_URL"], Configuration["NOTEDB_USERNAME"], Configuration["NOTEDB_PASSWORD"]);
 
-            Console.WriteLine("constr: " + conStr);
-
             services.AddEntityFrameworkSqlServer().AddDbContext<NoteContext>(options =>
                 options.UseSqlServer(conStr));
 
