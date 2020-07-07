@@ -20,17 +20,20 @@ namespace Note.API
 
         public IConfiguration Configuration { get; }
 
+        private string _connectionStringTemplate = "Server={0};User Id={1};Password={2}";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
+            var conStr = string.Format(_connectionStringTemplate, Configuration["NOTEDB_URL"], Configuration["NOTEDB_USERNAME"], Configuration["NOTEDB_PASSWORD"]);
+
             services.AddEntityFrameworkSqlServer().AddDbContext<NoteContext>(options =>
-                options.UseSqlServer(Configuration["ConnectionString"]));
+                options.UseSqlServer(conStr));
 
             services.AddScoped<INoteQueries>(svc =>
             {
-                var conStr = Configuration["ConnectionString"];
                 return new NoteQueries(conStr);
             });
 

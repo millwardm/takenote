@@ -21,3 +21,16 @@ spec:
           image: mcmillward/takenote-note:latest
           ports:
             - containerPort: 80
+          env:
+            - name: NOTEDB_URL
+              value: note-db-svc
+            - name: NOTEDB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: note-db-cred
+                  key: NOTEDB_USERNAME
+            - name: NOTEDB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: note-db-cred
+                  key: NOTEDB_PASSWORD

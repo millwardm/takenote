@@ -28,7 +28,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://0.0.0.0:80
-      - ConnectionString=Server=sql;User Id=sa;Password=Pass@word
+      - NOTEDB_URL=sql
+      - NOTEDB_USERNAME=sa
+      - NOTEDB_PASSWORD=Pass@word
     ports:
       - "3201:80"
     volumes:
