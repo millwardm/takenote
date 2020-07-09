@@ -36,7 +36,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Note.Domain", "Services\Not
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Note.Infrastructure", "Services\Note\Note.Infrastructure\Note.Infrastructure.csproj", "{E95819B4-AB43-4309-97BD-988A45C4A26C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Note.UnitTests", "Services\Note\Note.UnitTests\Note.UnitTests.csproj", "{2C71C43B-72ED-4F2F-A66C-E51031D44C55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Note.FunctionalTests", "Services\Note\Note.FunctionalTests\Note.FunctionalTests.csproj", "{33ABD05A-19F1-40DD-B36C-E421FAAAD34F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,10 +64,10 @@ Global
 		{E95819B4-AB43-4309-97BD-988A45C4A26C}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{E95819B4-AB43-4309-97BD-988A45C4A26C}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{E95819B4-AB43-4309-97BD-988A45C4A26C}.Release|anycpu.Build.0 = Release|Any CPU
-		{2C71C43B-72ED-4F2F-A66C-E51031D44C55}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{2C71C43B-72ED-4F2F-A66C-E51031D44C55}.Debug|anycpu.Build.0 = Debug|anycpu
-		{2C71C43B-72ED-4F2F-A66C-E51031D44C55}.Release|anycpu.ActiveCfg = Release|anycpu
-		{2C71C43B-72ED-4F2F-A66C-E51031D44C55}.Release|anycpu.Build.0 = Release|anycpu
+		{33ABD05A-19F1-40DD-B36C-E421FAAAD34F}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{33ABD05A-19F1-40DD-B36C-E421FAAAD34F}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{33ABD05A-19F1-40DD-B36C-E421FAAAD34F}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{33ABD05A-19F1-40DD-B36C-E421FAAAD34F}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6C21C2AF-DFB5-40D2-85FC-B3521360241D} = {1149D5D5-C299-4BB2-8B2F-0F1CBB80B841}
@@ -78,6 +78,6 @@ Global
 		{F771CC05-9EBC-4615-A3BD-E1157BABAF94} = {479F0B22-3926-4645-B77C-FB26E1C3B171}
 		{F17EAD7E-CE1D-4177-B23D-613600FDC4F6} = {B19640ED-A70C-4915-B54F-5E1A10E00817}
 		{E95819B4-AB43-4309-97BD-988A45C4A26C} = {B19640ED-A70C-4915-B54F-5E1A10E00817}
-		{2C71C43B-72ED-4F2F-A66C-E51031D44C55} = {B19640ED-A70C-4915-B54F-5E1A10E00817}
+		{33ABD05A-19F1-40DD-B36C-E421FAAAD34F} = {B19640ED-A70C-4915-B54F-5E1A10E00817}
 	EndGlobalSection
 EndGlobal

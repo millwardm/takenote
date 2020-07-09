@@ -1,0 +1,30 @@
+﻿version: "3.4"
+
+services:
+  sql:
+    build:
+      context: ../
+      dockerfile: src/Database/Note/DatabaseDockerfile
+
+  liquibase:
+    build:
+      context: ../
+      dockerfile: src/Database/Note/LiquibaseDockerfile
+    depends_on: 
+      - sql
+    entrypoint: ["/bin/bash", "./entrypoint.sh"]
+
+  note.api:
+    image: ${DOCKER_REGISTRY-}note
+    build:
+      context: ../
+      dockerfile: src/Services/Note/Note.API/Dockerfile
+    depends_on:
+      - liquibase
+
+  note.functionaltests:
+    build:
+      context: ../
+      dockerfile: src/Services/Note/Note.FunctionalTests/Dockerfile
+    depends_on:
+      - note.api

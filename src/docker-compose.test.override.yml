@@ -1,0 +1,38 @@
+﻿version: "3.4"
+
+services:
+  sql:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+
+  liquibase:
+    environment:
+      - NOTEDB_JDBC_URL=jdbc:sqlserver://sql:1433
+      - NOTEDB_USERNAME=sa
+      - NOTEDB_PASSWORD=Pass@word
+
+  note.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - NOTEDB_URL=sql
+      - NOTEDB_USERNAME=sa
+      - NOTEDB_PASSWORD=Pass@word
+    ports:
+      - "3201:80"
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+
+  note.functionaltests:
+    ports:
+      - "3202:80"
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
